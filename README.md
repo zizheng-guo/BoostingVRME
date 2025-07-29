@@ -1,6 +1,6 @@
 # BoostingVRME
 
-![result](figures\result.png)
+![result](figures/result.png)
 
 ## 🔧 Setup
 
