@@ -1,8 +1,6 @@
 # BoostingVRME
 
-result：
-
-![4 result](figures\4 result.png)
+![result](figures\result.png)
 
 ## 🔧 Setup
 
@@ -17,6 +15,8 @@ STEP3: `pip install -r ./requirements.txt`
 ## 💻 Example of Using Pre-trained Models
 
 If you want to run the pre-trained model on SAMMLV, use `python main.py --dataset_name SAMMLV --train False`
+
+Note: The preprocessed data and pre-trained models on the CASME_3 dataset can be obtained through the link: https://drive.google.com/drive/folders/1eSZWKSagQDt2w9ua3fSPJGKA0POVqJo0?usp=sharing
 
 
 
