@@ -103,7 +103,8 @@ def spotting(final_samples, subject_count, pred_interval, total_gt_spot, metric_
                         if j < n - 1 and score_plot_agg[j] < threshold2 and score_plot_agg[j + 1] < threshold2:
                             end = j - 1
                             break
-                preds.append([start, 0, end, 0, 0, 0, peak])
+                peak_new = np.argmax(score_plot_agg[start:end + 1]) + start
+                preds.append([start, 0, end, 0, 0, 0, peak_new])
             else:
                 preds.append([peak - k_p, 0, peak + k_p, 0, 0, 0, peak])
 
