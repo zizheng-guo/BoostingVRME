@@ -1,0 +1,2 @@
+The pre-processed .pkl files can be obtained via the following link:
+ https://drive.google.com/drive/folders/1eSZWKSagQDt2w9ua3fSPJGKA0POVqJo0?usp=sharing
