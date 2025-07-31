@@ -1,6 +1,6 @@
 # BoostingVRME
 
-![result](figures/result.png)
+![result](C:\Users\guo_z\Desktop\MEGC提交\4_result.png)
 
 ## 🔧 Setup
 
@@ -16,7 +16,7 @@ STEP3: `pip install -r ./requirements.txt`
 
 If you want to run the pre-trained model on SAMMLV, use `python main.py --dataset_name SAMMLV --train False`
 
-Note: The preprocessed data and pre-trained models on the CASME_3 dataset can be obtained through the link: https://drive.google.com/drive/folders/1eSZWKSagQDt2w9ua3fSPJGKA0POVqJo0?usp=sharing
+Note: The preprocessed data and pre-trained models can be obtained through the link: https://drive.google.com/drive/folders/1eSZWKSagQDt2w9ua3fSPJGKA0POVqJo0?usp=sharing
 
 
 
@@ -26,7 +26,7 @@ STEP 1: Download the $CAS(ME)^3$ raw data by asking the paper authors
 
 STEP 2: Modify `main.py; load_excel.py; load_images.py`
 
-STEP 3: Run `python main.py --dataset_name CASME_3 --train True`
+STEP 3: Run `python main.py --dataset_name CASME_3 --train True --flow_process True` 
 
 
 
