@@ -107,13 +107,11 @@ def spotting(final_samples, subject_count, pred_interval, total_gt_spot, metric_
                 preds.append([start, 0, end, 0, 0, 0, peak_new])
             else:
                 preds.append([peak - k_p, 0, peak + k_p, 0, 0, 0, peak])
+        if interval_strategy == 1 and dataset_name != 'SAMM_test':
+            preds = nms(preds,k_p)
 
         if len(preds) == 0:
             preds = np.empty((0, 7))
-
-        if dataset_name != 'SAMM_test':
-            preds = nms(preds,k_p)
-
         gt_list = []
         for s in video:
             gt.append([s[0], 0, s[2], 0, 0, 0, 0, s[1]])
@@ -150,7 +148,6 @@ def mean_iou_evaluation(metric, threshold):
     all_ious = []
     for cls_df in metric.match_table:
         if not cls_df.empty:
-            # 可能每格是 list/array，先全部拉平
             for cell in cls_df['iou']:
                 all_ious.extend(np.array(cell).ravel())
 

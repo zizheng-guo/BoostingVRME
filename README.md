@@ -1,6 +1,6 @@
 # BoostingVRME
 
-![result](C:\Users\guo_z\Desktop\MEGC提交\4_result.png)
+![result](figures/result.png)
 
 ## 🔧 Setup
 
