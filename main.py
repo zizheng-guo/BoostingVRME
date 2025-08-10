@@ -38,7 +38,7 @@ def main(config):
     epochs = 50
     lr = 3e-4
     interval_strategy = 1 # 0:w/o; 1: Extensible Interval Selection Strategy
-    synergy_strategy = 2 # 0:w/o; 1:recognition mainly; 2:spotting mainly
+    synergy_strategy = 1 # 0:w/o; 1:recognition mainly; 2:spotting mainly
 
     if dataset_name == "CASME_3" or dataset_name == "CASME_test":
         frame_skip = 1 # Depends on frame rate

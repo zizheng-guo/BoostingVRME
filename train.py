@@ -31,6 +31,7 @@ def train_model(train, X_spot, Y_spot, Y1_spot, groupsLabel_spot, groupsLabel_re
     penalty_strategy = 0
     if dataset_name == "CASME_test":
         interval_strategy = 0
+        synergy_strategy = 2
     if dataset_name == "SAMM_test":
         penalty_strategy = 1
     start = time.time()
@@ -213,6 +214,9 @@ def train_model(train, X_spot, Y_spot, Y1_spot, groupsLabel_spot, groupsLabel_re
 
                 if synergy_strategy == 2:
                     yhat1 = torch.max(yhat1[:,:,0:4], 2)[1].tolist()  
+                elif synergy_strategy == 1:
+                    yhat1[:,:,4] = yhat1[:,:,4] * 0
+                    yhat1 = torch.max(yhat1, 2)[1].tolist()  
                 else:
                     yhat1 = torch.max(yhat1, 2)[1].tolist()  
 
@@ -276,13 +280,12 @@ def train_model(train, X_spot, Y_spot, Y1_spot, groupsLabel_spot, groupsLabel_re
                     yhat = yhat.cpu().data.numpy()
 
                     if synergy_strategy == 2:
+                        yhat1 = torch.max(yhat1[:,:,0:4], 2)[1].tolist()  
+                    elif synergy_strategy == 1:
+                        yhat1[:,:,4] = yhat1[:,:,4] * 0
                         if penalty_strategy == 1:
-                            weights = torch.tensor([1.0, 1.0, 1.0, 1.0, 0.0]).cuda()
-                            yhat1 = yhat1 * weights
                             yhat1[:, :, 0] -= 1.0
-                            yhat1 = torch.max(yhat1, 2)[1].tolist()  
-                        else:
-                            yhat1 = torch.max(yhat1[:,:,0:4], 2)[1].tolist()  
+                        yhat1 = torch.max(yhat1, 2)[1].tolist()  
                     else:
                         yhat1 = torch.max(yhat1, 2)[1].tolist()  
 
