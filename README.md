@@ -49,7 +49,7 @@ If you find this repository helpful, please consider citing:
   publisher = {Association for Computing Machinery},
   address = {New York, NY, USA},
   doi = {10.1145/3746027.3762026},
-  booktitle={Proceedings of the 33st ACM International Conference on Multimedia},
+  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia},
   location = {Dublin, Ireland},
   series = {MM '25}
 }
