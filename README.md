@@ -34,3 +34,23 @@ STEP 3: Run `python main.py --dataset_name CASME_3 --train True --flow_process T
 
 We referred to [MEAN_Spot-then-recognize](https://github.com/genbing99/MEAN_Spot-then-recognize), and would like to express our sincere thanks to the authors.
 
+
+
+## 📜 Citation
+
+If you find this repository helpful, please consider citing:
+
+```
+@inproceedings{10.1145/3746027.3762026,
+  title={Boosting Micro-Expression Analysis via Prior-Guided Video-Level Regression},
+  author={Guo, Zizheng and Zou, Bochao and Jia, Yinuo and Li, Xiangyu and Ma, Huimin},
+  year={2025},
+  isbn = {9798400720352},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  doi = {10.1145/3746027.3762026},
+  booktitle={Proceedings of the 33st ACM International Conference on Multimedia},
+  location = {Dublin, Ireland},
+  series = {MM '25}
+}
+```
