@@ -44,7 +44,6 @@ def train_model(train, X_spot, Y_spot, Y1_spot, groupsLabel_spot, groupsLabel_re
     spot_train_index = []
     spot_test_index = []
     metric_final = MeanAveragePrecision2d(num_classes=1)
-    metric_final2 = MeanAveragePrecision2d(num_classes=1)
 
     # LOSO
     for train_index, test_index in loso.split(X_spot, X_spot, groupsLabel_spot):
@@ -240,20 +239,14 @@ def train_model(train, X_spot, Y_spot, Y1_spot, groupsLabel_spot, groupsLabel_re
                     result1_all.append(result1_video)
 
             print('---- Spotting Results ----')
-            preds, gt, total_gt_spot, metric_video, metric_final, metric_final2 = spotting(final_samples, subject_count, result_all, total_gt_spot, metric_final, k_p, interval_strategy, dataset_name)
+            preds, gt, total_gt_spot, metric_video, metric_final = spotting(final_samples, subject_count, result_all, total_gt_spot, metric_final, k_p, interval_strategy, dataset_name)
             TP_spot, FP_spot, FN_spot = sequence_evaluation(total_gt_spot, metric_final)
-            TP_spot2, FP_spot2, FN_spot2 = sequence_evaluation(total_gt_spot, metric_final2)
             print('---- Recognition Results ----')
             pred_list, preds_reg, gt_tp_list, pred_window_list, pred_single_list = recognition(result1_all, preds, metric_video, final_emotions, subject_count, pred_list, gt_tp_list, final_samples, pred_window_list, pred_single_list, frame_skip, penalty_strategy)
             avg_iou = mean_iou_evaluation(metric_final,0.0)
             print("avg_iou_all : ", avg_iou)
             avg_iou_tp = mean_iou_evaluation(metric_final,0.5)
             print("avg_iou_tp : ", avg_iou_tp)
-
-            avg_iou = mean_iou_evaluation(metric_final2,0.0)
-            print("avg_iou_all2 : ", avg_iou)
-            avg_iou_tp = mean_iou_evaluation(metric_final2,0.5)
-            print("avg_iou_tp2 : ", avg_iou_tp)
 
         else: # Test
             if dataset_name == 'SAMM_test' or dataset_name == 'CASME_test':
